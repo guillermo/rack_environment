@@ -1,6 +1,39 @@
 = rack_environment
 
-Description goes here.
+Rack environment is a small rack midelware that adds a message just after the body tag.
+
+
+== Usage
+
+in environment.rb
+
+  config.middleware.use "RackEnvironment" do |env|
+    env.define_environment(:staging   , lambda{ server_name =~ /^staging/ })
+    env.define_environment(:dev       , lambda{ server_name == 'localhost'})
+  
+    env.append_to_body lambda{ |env_name|
+      style = "width:100%;letter-spacing: 100%; white-space: nowrap; overflow:hidden; height: 15px; opacity: 0.8; position: fixed; z-index: 99999999; top: 0px; left: 0px;background: black; color: yellow; padding:5px; text-align:center;"
+    
+      "<div style='#{style}'>You are in #{env_name}</div>"
+    }
+  end
+
+
+== Syntax
+
+  config.middleware.use "RackEnvironment" do |env|
+    env.define_environment(:environment_name, lamda { return true if this is the current_environment })
+  
+    env.append_to_body lambda { |env_name| 
+    
+      "This text will be appended just after <body> tag"
+    }
+
+  end
+
+
+== Functions
+
 
 == Note on Patches/Pull Requests
  

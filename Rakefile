@@ -5,12 +5,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "rack_environment"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Add a body message to some environments}
+    gem.description = %Q{Rack environment is a rails plugins that lets you define some environments and add some html just after to body tag}
     gem.email = "guillermo@cientifico.net"
     gem.homepage = "http://github.com/guillermo/rack_environment"
     gem.authors = ["Guillermo Álvarez"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
